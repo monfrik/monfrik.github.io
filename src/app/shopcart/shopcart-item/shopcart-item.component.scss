@@ -1,0 +1,73 @@
+$main-color: #dc2c00;
+.shopcart-item {
+  display: flex;
+  padding: 1rem;
+  justify-content: space-between;
+  margin-top: 1rem;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  &-img {
+    border-radius: 5px;
+    background-color: white;
+    width: 10rem;
+    height: 10rem;
+    object-fit: contain;
+    margin-right: 1rem;
+  }
+  &-desc {
+    margin-right: auto;
+  }
+  &-name {
+    font-size: 1.1rem;
+  }
+  &-price, &-count {
+    margin-top: .5rem;
+  }
+  &-count {
+    display: flex;
+    align-items: center;
+  }
+  &-add, &-reduce {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .05rem;
+    border-radius: 50%;
+    width: 1.2rem;
+    height: 1.2rem;
+    line-height: 1.1rem;
+    font-size: 1.1rem;
+    background-color: #999;
+    color: white;
+    font-weight: 100;
+    margin: 0 .5rem;
+  }
+  &-price {
+    span {
+      color: $main-color;
+    }
+    mark {
+      background-color: transparent;
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+  }
+  &-rightbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  &-delete, &-addWish {
+    text-decoration: underline;
+    cursor: pointer;
+    &:hover {
+      color: $main-color
+    }
+  }
+  &-date {
+    font-size: .8rem;
+    color: #999;
+  }
+}

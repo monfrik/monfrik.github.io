@@ -1,0 +1,33 @@
+<div class="addOrder">
+  <div class="addOrder-content">
+    <div class="addOrder-close" (click)="onClose()">X</div>
+    <h2 class="addOrder-title">Добавить в корзину</h2>
+    <!-- <form class="addOrder-form" (ngSubmit)="onSubmit(count.value)"> -->
+    <form class="addOrder-form" (ngSubmit)="onSubmit()">
+      <div class="addOrder-description">
+        <img [src]="product.img" [alt]="product.name" class="addOrder-img">
+        <ul class="addOrder-info">
+          <li class="addOrder-attribute">
+            <p>{{product.name}}</p>
+          </li>
+          <li class="addOrder-attribute">
+            <p>Кол-во:</p>
+            <div class="addOrder-count">
+              <!-- <input type="text" class="addOrder-input" id="count" [value]="count.value" [formControl]="count"> -->
+              <input type="text" class="addOrder-input" id="count" [(ngModel)]="product.count" name="count">
+              <div class="addOrder-actions">
+                <div class="addOrder-add" (click)="addCount()"></div>
+                <div class="addOrder-reduce" (click)="reduceCount()"></div>
+              </div>
+            </div>
+          </li>
+          <li class="addOrder-attribute">
+            <p>Сумма: </p>
+            <p> {{(product.price/100*product.count | number ).replace(',', ' ')}} руб</p>
+          </li>
+        </ul>
+      </div>
+      <!-- <button class="addOrder-submit" type="submit">Добавить</button> -->
+      <button class="addOrder-submit" [mat-dialog-close]="product">Добавить</button>
+    </form>
+</div>

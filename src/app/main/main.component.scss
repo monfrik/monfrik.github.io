@@ -1,0 +1,13 @@
+.main {
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  &-item {
+    max-width: 18rem;
+    width: 35%;
+    min-width: 15rem;
+    padding: 0px 1rem;
+  }
+}

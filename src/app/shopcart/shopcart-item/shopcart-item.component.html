@@ -1,0 +1,19 @@
+<li class="shopcart-item">
+  <img [src]="product.img" [alt]="product.name" class="shopcart-item-img">
+  <div class="shopcart-item-desc">
+    <p class="shopcart-item-name">{{product.name}}</p>
+    <p class="shopcart-item-price">Цена: 
+      <span>{{(product.price/100*product.count | number ).replace(',', ' ')}} руб</span>
+    </p>
+    <p class="shopcart-item-count">Количество: 
+      <span class="shopcart-item-reduce" (click)="reduceCount.emit()">-</span>
+      {{product.count}} шт.
+      <span class="shopcart-item-add" (click)="addCount.emit()">+</span>
+    </p>
+  </div>
+  <div class="shopcart-item-rightbar">
+    <a class="shopcart-item-delete" (click)="delete.emit()">Удалить</a>
+    <a class="shopcart-item-addWish" (click)="addWish.emit()">Добавить в список желаний</a>
+    <p class="shopcart-item-date">Добавлено {{product.dateOfAdoption}}</p>
+  </div>
+</li>

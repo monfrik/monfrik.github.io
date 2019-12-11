@@ -1,0 +1,116 @@
+.addOrder {
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  display: flex;
+  &-background {
+    background-color: rgba($color: #000, $alpha: .4);
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: 2;
+  }
+  &-background, &-close, &-submit, &-add, &-reduce {
+    cursor: pointer;
+  }
+  &-content {
+    cursor: default;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    background-color: #d6d6d6;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    position: relative;
+    z-index: 10;
+  }
+  &-close {
+    margin-left: auto;
+    padding: .1rem .7rem;
+    background-color: #ddd;
+    border-radius: 5px;
+    border: 1px solid black;
+    font-weight: bold;
+  }
+  &-form {
+    width: 80%;
+    margin: 2rem auto 0 auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &-description {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+  }
+  &-img {
+    height: 100%;
+    max-height: 100%;
+    background-color: white;
+  }
+  &-info {
+    width: 100%;
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &-attribute {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &-submit {
+    width: 80%;
+    padding: 1rem 0;
+    margin: 1.2rem auto 0 auto;
+    font-size: 1.5rem;
+    color: white;
+    background-color: #75b06b;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+  }
+  &-count {
+    display: flex;
+  }
+  &-actions {
+    margin-left: 1rem;
+    width: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 2.5rem;
+  }
+  &-add, &-reduce {
+    width: 0px;
+    height: 0px;
+    border: .4rem solid transparent;
+    background-color: transparent;
+    transform: scaleY(2);
+  }
+  &-add {
+    border-bottom-color: black;
+  }
+  &-reduce {
+    border-top-color: black;
+  }
+  &-input {
+    padding: 0 .3rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    width: 3rem;
+    height: 2.5rem;
+    border: 1px solid #555;
+    box-sizing: border-box;
+  }
+}

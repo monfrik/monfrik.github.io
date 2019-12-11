@@ -1,0 +1,21 @@
+$main-color: #dc2c00;
+.headerNav {
+  &-list {
+    display: flex;
+  }
+  &-item {
+    border: 1px solid transparent;
+  }
+  &-item:not(:last-child) {
+    border-right-color: black;
+  }
+  &-link {
+    color: black;
+    font-weight: bold;
+    display: block;
+    padding: 1.2rem 2rem;
+    &:hover {
+      color: $main-color;
+    }
+  }
+}

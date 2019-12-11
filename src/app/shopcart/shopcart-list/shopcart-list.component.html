@@ -1,0 +1,14 @@
+<div *ngIf="shopcart.length==0" class="shopcart-empty">
+  <p>В корзине пока что пусто, просмотрите 
+    <a [routerLink]="['/main']" class="shopcart-empty__link">список продуктов</a>
+  </p>
+</div>
+<ul *ngIf="shopcart.length>0" class="shopcart-list">
+  <app-shopcart-item
+    *ngFor="let product of shopcart"
+    [product]="product"
+    (reduceCount)="onReduceCount(product)"
+    (addCount)="onAddCount(product)"
+    (delete)="onDelete(product)"
+    (addWish)="onAddWish(product)"></app-shopcart-item>
+</ul>

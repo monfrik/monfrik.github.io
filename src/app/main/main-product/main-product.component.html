@@ -1,0 +1,14 @@
+<div class="product">
+  <img [src]="product.img" [alt]="product.name" class="product-img">
+  <p class="product-name">{{product.name}}</p>
+  <p class="product-price">{{(product.price/100 | number ).replace(',', ' ')}} руб</p>
+  <footer class="product-footer">
+    <button (click)="shopcart.emit()" class="product-shopcart">
+      <img src="assets/img/shopcart.png" alt="bakset">
+      В корзину
+    </button>
+    <button (click)="wish.emit()" class="product-wish">
+      <img src="assets/img/wishicon.jpg" alt="wish">
+    </button>
+  </footer>
+</div>

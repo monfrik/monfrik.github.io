@@ -1,0 +1,11 @@
+<main class="main">
+  <ul class="main-list">
+    <li *ngFor="let product of products" class="main-item">
+      <app-main-product
+        [product]="product"
+        (wish)="addWish(product)"
+        (shopcart)="addShopcart(product)"
+        ></app-main-product>
+    </li>
+  </ul>
+</main>

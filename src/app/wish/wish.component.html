@@ -1,0 +1,22 @@
+<div class="wish">
+
+  <h2 class="wish-title">Избранное</h2>
+  
+  <div *ngIf="wishes.length==0" class="wish-empty">
+    <p>В списке желаний пока что пусто, просмотрите <a [routerLink]="['/main']" class="wish-empty__link">список продуктов</a></p>
+  </div>
+  <ul *ngIf="wishes.length>0" class="wish-list">
+    <li *ngFor="let item of wishes" class="wish-item">
+      <img [src]="item.img" [alt]="item.name" class="wish-item__img">
+      <div class="wish-item__desc">
+        <p class="wish-item__name">{{item.name}}</p>
+        <p class="wish-item__price">Цена: <span>{{(item.price/100 | number ).replace(',', ' ')}} руб</span> <mark> / шт.</mark></p>
+      </div>
+      <div class="wish-item__rightbar">
+        <a class="wish-item__delete" (click)="delete(item)">Удалить</a>
+        <a class="wish-item__add" (click)="addShopcart(item)">Добавить в корзину</a>
+        <p class="wish-item__date">Добавлено {{item.dateOfAdoption}}</p>
+      </div>
+    </li>
+  </ul>
+</div>

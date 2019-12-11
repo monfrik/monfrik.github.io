@@ -1,0 +1,7 @@
+$main-color: #dc2c00;
+.shopcart-empty {
+  margin-top: 2rem;
+  &__link {
+    text-decoration: underline;
+  }
+}

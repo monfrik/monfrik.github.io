@@ -1,0 +1,29 @@
+<div class="headerRightBar">
+  <ul class="headerRightBar-list">
+    <li class="headerRightBar-item headerRightBar-wish">
+      <a [routerLink]="['/wish']">
+        <img class="headerRightBar-item headerRightBar-wish__icon" src="assets/img/wishicon.jpg" alt="wishicon">
+      </a>
+      <a [routerLink]="['/wish']">
+        <p *ngIf="wish.length != 0"><span>{{wish.length}} товаров</span></p>
+        <p *ngIf="wish.length == 0"><span>Пусто</span></p>
+      </a>
+    </li>
+    <li class="headerRightBar-item headerRightBar-shopcart">
+      <a [routerLink]="['/wish']">
+        <img class="headerRightBar-item headerRightBar-shopcart__icon" src="assets/img/shopcart.png" alt="shopcart">
+      </a>
+      <div>
+        <a [routerLink]="['/shopcart']">
+          <p>В корзине
+            <span *ngIf="shopcart.length != 0">{{shopcart.length}} товаров</span>
+            <span *ngIf="shopcart.length == 0">пусто</span>
+          </p>
+        </a>
+        <a [routerLink]="['/shopcart']">
+          <p *ngIf="shopcart.length != 0">На сумму <span></span></p>
+        </a>
+        </div>
+    </li>
+  </ul>
+</div>

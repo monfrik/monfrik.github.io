@@ -1,0 +1,59 @@
+$main-color: #dc2c00;
+.wish {
+  margin-top: 2rem;
+  &-empty {
+    &__link {
+      text-decoration: underline;
+    }
+  }
+  &-item {
+    display: flex;
+    padding: 1rem;
+    justify-content: space-between;
+    margin-top: 1rem;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    &__img {
+      border-radius: 5px;
+      background-color: white;
+      width: 10rem;
+      height: 10rem;
+      object-fit: contain;
+      margin-right: 1rem;
+    }
+    &__desc {
+      margin-right: auto;
+    }
+    &__name {
+      font-size: 1.1rem;
+    }
+    &__price {
+      margin-top: .5rem;
+      span {
+        color: $main-color;
+      }
+      mark {
+        background-color: transparent;
+        font-size: 0.8rem;
+        color: #aaa;
+      }
+    }
+    &__rightbar {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    &__delete, &__add {
+      text-decoration: underline;
+      cursor: pointer;
+      &:hover {
+        color: $main-color
+      }
+    }
+    &__date {
+      font-size: .8rem;
+      color: #999;
+    }
+  }
+}
