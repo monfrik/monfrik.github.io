@@ -1,0 +1,47 @@
+.experience {
+  margin-bottom: 5rem;
+
+  @media screen and (max-width: 1024px) {
+    margin-left: 1.7rem;
+    margin-bottom: 2rem;
+  }
+
+  &__title {
+    position: relative;
+    margin-bottom: 4rem;
+
+    @media screen and (max-width: 1024px) {
+      margin-bottom: 2rem;
+    }
+
+    &::before {
+      position: absolute;
+      content: '';
+      display: block;
+      width: 14rem;
+      height: 14rem;
+      border: 6px solid @primary;
+      bottom: -2rem;
+      left: -5.35rem;
+
+      @media screen and (max-width: 1024px) {
+        left: 5.5rem;
+        bottom: -.9rem;
+        border: 3px solid @primary;
+        width: 9rem;
+        height: 9rem;
+      }
+    }
+  }
+  &__subtitle {
+    font-size: 1.5rem;
+    width: 37.5rem;
+    max-width: 100%;
+    line-height: 150%;
+
+    @media screen and (max-width: 1024px) {
+      font-size: 1.2rem;
+      line-height: 140%;
+    }
+  }
+}

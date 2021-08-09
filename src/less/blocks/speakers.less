@@ -1,0 +1,139 @@
+.speakers {
+  margin: 7% 0 5.3% 12%;
+
+  @media screen and (max-width: 1024px) {
+    margin: -3rem 0 2rem .7rem;
+  }
+
+  &__title {
+    font-family: 'Helvetica NeueCyr';
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    margin-bottom: 3.5rem;
+
+    @media screen and (max-width: 1024px) {
+      font-size: 2.75rem;
+      margin-bottom: 2rem;
+      margin-left: 1rem;
+    }
+  }
+  &__slider {
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+
+    &::before {
+      content: '';
+      position: absolute;
+      display: block;
+      top: -4%;
+      left: -1.6rem;
+      width: 20%;
+      height: 26.5rem;
+      background-color: @primary;
+  
+      @media screen and (max-width: 1024px) {
+        top: -3.5%;
+        height: 17rem;
+      }
+  
+      @media screen and (max-width: 650px) {
+        width: 51%;
+      }
+    }
+    .slick-list {
+      order: -1;
+    }
+    .slick-next {
+      margin: 4rem 5.5rem 0 1.2rem;
+      &::before {
+        content: '🡢';
+      }
+    }
+    .slick-prev {
+      &::before {
+        content: '🡠';
+      }
+    }
+    .slick-arrow {
+      display: block;
+      position: relative !important;
+      margin-top: 4.5rem;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background-color: transparent;
+      width: 2.7rem;
+      height: 2.7rem;
+      border: 2px solid @primary;
+      transform: none;
+
+      &:hover {
+        &::before {
+          color: #fff;
+        }
+        &::after {
+          width: 100%;
+        }
+      }
+      &:hover::after {
+        width: 100%;
+      }
+      &::before {
+        font-family: 'Helvetica' !important;
+        position: relative !important;
+        z-index: 2;
+        color: @primary;
+        opacity: 1 !important;
+        transition: .5s;
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        width: 0%;
+        height: 100%;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        background-color: @primary;
+        z-index: -1;
+        transition: .5s;
+      }
+    }
+  }
+  &__item {
+    &-title {
+      margin: 2.3rem 0 .5rem 0;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      font-family: 'Helvetica NeueCyr';
+
+      @media screen and (max-width: 1024px) {
+        margin: 1.5rem 0 .1rem 1rem;
+      }
+      &_mark {
+        color: @primary;
+        background-color: transparent;
+
+        @media screen and (max-width: 1024px) {
+          display: block;
+        }
+      }
+    }
+    &-text {
+      line-height: 1.62rem;
+
+      @media screen and (max-width: 1024px) {
+        max-width: 17.6rem;
+        margin-left: 1rem;
+      }
+    }
+    &-image {
+      @media screen and (max-width: 1024px) {
+        height: 15.3rem;
+      }
+    }
+  }
+}

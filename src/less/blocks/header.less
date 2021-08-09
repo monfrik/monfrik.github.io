@@ -1,0 +1,25 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-right: 2.8rem;
+
+  @media screen and (max-width: 1024px) {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding-right: 1rem;
+  }
+
+  &__logo {
+    @media screen and (max-width: 1024px) {
+      order: -2;
+      height: 1.1rem;
+      margin-top: 1rem;
+
+      &-image {
+        height: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,182 @@
+.participation {
+  background-image: url('/images/participation-bg.jpg');
+  background-size: cover;
+  
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 5rem 7rem 6.5rem 10.6rem;
+
+    @media screen and (max-width: 1024px) {
+      padding: 1.6rem 0 2.5rem 1.7rem;
+    }
+  }
+  &__title {
+    font-size: 3rem;
+    font-family: 'Helvetica NeueCyr';
+    text-transform: uppercase;
+    letter-spacing: .11rem;
+    margin-bottom: 3rem;
+
+    @media screen and (max-width: 1024px) {
+      font-size: 2.75rem;
+      margin-bottom: 0rem;
+    }
+
+    &_mark {
+      background-color: transparent;
+      color: @primary;
+    }
+  }
+  &__registration {
+    width: 46.8%;
+
+    @media screen and (max-width: 1024px) {
+      width: 100%;
+    }
+  }
+  &__form {
+    width: 100%;
+    
+    &-item {
+      position: relative;
+      margin-top: 3.6rem;
+      width: 100%;
+
+      @media screen and (max-width: 1024px) {
+        &:first-child {
+          margin-top: 2.7rem;
+        }
+        & + & {
+          margin-top: 3.3rem;
+        }
+      }
+    }
+    &-label {
+      position: absolute;
+      font-size: 1.25rem;
+      top: .5rem;
+      left: 0;
+      z-index: 1;
+      text-transform: uppercase;
+      transition: top .5s, font-size .5s, font-weight .5s, text-transform .5s;
+      letter-spacing: .05rem;
+
+      @media screen and (max-width: 1024px) {
+        font-size: 1rem;
+      }
+    }
+    &-input {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding: .5rem 0 1rem 0;
+      background-color: transparent;
+      text-transform: uppercase;
+      outline: none;
+      border-bottom: 3px solid #000;
+      font-size: 1.25rem;
+      font-weight: bold;
+      letter-spacing: .05rem;
+
+      @media screen and (max-width: 1024px) {
+        font-size: 1rem;
+      }
+
+      &.error {
+        border-bottom-color: @error-color;
+        color: @error-color;
+      }
+    }
+    &-error {
+      position: absolute;
+      bottom: -40%;
+      color: @error-color;
+      display: none;
+
+      &.error {
+        display: block;
+      }
+    }
+    &-input:focus + &-label, &-label.active {
+      top: -1rem;
+      font-size: 0.8rem;
+      font-weight: normal;
+      text-transform: none
+    }
+    &-submit {
+      margin-top: 4rem;
+      position: relative;
+      width: 100%;
+      z-index: 3;
+
+      @media screen and (max-width: 1024px) {
+        margin-top: 2.5rem;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+      &::before, &::after {
+        content: '';
+        position: absolute;
+        display: block;
+        height: 96%;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        transition: .5s;
+      }
+      &::before {
+        z-index: -2;
+        width: 100%;
+        background-color: @primary;
+      }
+      &::after {
+        z-index: -1;
+        width: 0%;
+        background-color: #000;
+      }
+    }
+    &-button {
+      width: 100%;
+      height: 3.75rem;
+      cursor: pointer;
+      background-color: transparent;
+      position: relative;
+      z-index: 2;
+      color: #fff;
+      text-transform: uppercase;
+      font-family: 'Helvetica NeueCyr';
+      font-size: 1.25rem;
+    }
+  }
+  &__image {
+    z-index: 2;
+    background-color: red;
+    position: relative;
+    margin-top: 1.8rem;
+    width: 45%;
+
+    @media screen and (max-width: 1024px) {
+      display: none;
+    }
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      height: 97%;
+      width: 89%;
+      bottom: 8%;
+      left: 16%;
+      border: 6px solid @primary;
+      z-index: -1;
+    }
+  }
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

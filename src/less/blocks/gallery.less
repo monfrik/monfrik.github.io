@@ -1,0 +1,133 @@
+.gallery {
+  padding-top: 4.8rem;
+  margin-bottom: 5.5rem;
+
+  @media screen and (max-width: 1024px) {
+    padding-top: 1.9rem;
+    margin-bottom: 2.3rem;
+  }
+
+  &__title {
+    text-transform: uppercase;
+    margin-left: 10.9rem;
+    letter-spacing: .11rem;
+    font-size: 3rem;
+    font-family: 'Helvetica NeueCyr';
+    position: relative;
+    margin-bottom: 4rem;
+    z-index: 2;
+
+    @media screen and (max-width: 1024px) {
+      margin-left: 1.75rem;
+      font-size: 2.75rem;
+      line-height: 90%;
+      margin-bottom: 2.3rem;
+
+      &_mark {
+        display: block;
+      }
+    }
+
+    &::before {
+      position: absolute;
+      content: '';
+      display: block;
+      width: 14rem;
+      height: 14rem;
+      border: 6px solid @primary;
+      bottom: -2.2rem;
+      left: -5.35rem;
+      z-index: -1;
+
+      @media screen and (max-width: 1024px) {
+        left: 5.5rem;
+        bottom: -.9rem;
+        border: 3px solid @primary;
+        width: 9rem;
+        height: 9rem;
+      }
+    }
+    &_mark {
+      color: @primary;
+      background-color: transparent;
+    }
+  }
+  &__slider {
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+
+    .slick-list {
+      order: -1;
+    }
+    .slick-slide {
+      // height: 23.75rem !important;
+      
+      @media screen and (max-width: 450px) {
+        // height: 13.75rem !important;
+      }
+    }
+    .slick-next {
+      margin: 4rem 5.6rem 0 1.2rem;
+      &::before {
+        content: '🡢';
+      }
+    }
+    .slick-prev {
+      &::before {
+        content: '🡠';
+      }
+    }
+    .slick-arrow {
+      display: block;
+      position: relative !important;
+      margin-top: 2.3rem;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background-color: transparent;
+      width: 2.7rem;
+      height: 2.7rem;
+      border: 2px solid @primary;
+      transform: none;
+
+      &:hover {
+        &::before {
+          color: #fff;
+        }
+        &::after {
+          width: 100%;
+        }
+      }
+      &:hover::after {
+        width: 100%;
+      }
+      &::before {
+        font-family: 'Helvetica' !important;
+        position: relative !important;
+        z-index: 2;
+        color: @primary;
+        opacity: 1 !important;
+        transition: .5s;
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        width: 0%;
+        height: 100%;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        background-color: @primary;
+        z-index: -1;
+        transition: .5s;
+      }
+    }
+  }
+  &__image {
+    @media screen and (max-width: 450px) {
+      height: 15.3rem;
+    }
+  }
+}

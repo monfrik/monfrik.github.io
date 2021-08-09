@@ -1,0 +1,56 @@
+.nav {
+  margin-right: auto;
+
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+    margin: 2.3rem 0 0 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  @media screen and (max-width: 850px) {
+    justify-content: flex-start;
+  }
+
+  &__link {
+    margin-left: 1.87rem;
+    color: inherit;
+    font-weight: bold;
+    position: relative;
+
+    @media screen and (max-width: 1350px) {
+      margin-left: 0.5rem;
+    }
+    @media screen and (max-width: 1024px) {
+      margin-left: 0;
+      text-transform: uppercase;
+      white-space: nowrap;
+      margin-bottom: 1.2rem;
+    }
+    @media screen and (max-width: 850px) {
+      width: 33%;
+    }
+    @media screen and (max-width: 650px) {
+      width: 50%;
+    }
+
+    &:hover {
+      font-weight: normal;
+      transition: .5s;
+    }
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 4.2rem;
+      left: 0;
+      width: 100%;
+      background-color: @primary;
+      height: 0rem;
+      transition: .5s;
+    }
+    &:hover::before {
+      height: 2.8rem;
+    }
+  }
+}
