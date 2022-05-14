@@ -53,7 +53,7 @@ async function fetchItems(items, container, group) {
 async function fetchItem(id) {
 	const res = await fetch(`https://yfapi.net/v8/finance/spark?symbols=${id}&range=${currentPeriod}&interval=1d&indicators=close&includeTimestamps=false&includePrePost=false`, {
 		headers: {
-			'x-api-key': 'XcSA7RuQIFau6cHiJMyNb3p5d9mLpLW55UEg8hOQ',
+			'x-api-key': 'Mj6lfqvysk4TwZkJgp9A15VP5jN88ToN5WBWncq8',
 		}
 	})
 	if (res.status === 429) {
