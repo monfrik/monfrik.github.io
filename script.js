@@ -1,6 +1,9 @@
+const headerButton = document.querySelector('.header__button');
+const main = document.querySelector('.main');
 const selectStyle = document.querySelector('.graphs__style__select');
 const zoomSlider = document.querySelector('.graphs__slider');
-const selects = document.querySelectorAll('.selects__input');
+const selectsValues = document.querySelectorAll('.selects__value');
+const selectsItemsContainers = document.querySelectorAll('.selects__items');
 const visualization = document.getElementById("visualization");
 
 const groups = new vis.DataSet();
@@ -16,16 +19,10 @@ let zoom = 1;
 
 document.addEventListener('DOMContentLoaded', fetchGraph);
 
-selects.forEach(select => {
-	select.addEventListener('change', (e) => {
-		if (select.id === 'stock') {
-			currentStock = e.target.value;
-		}
-		if (select.id === 'indexes') {
-			currentIndex = e.target.value;
-		}
-		updateGraph();
- 	})
+headerButton.addEventListener('click', () => {
+	main.scrollIntoView({
+		behavior: 'smooth',
+	});
 });
 
 selectStyle.addEventListener('change', (e) => {
@@ -71,29 +68,39 @@ function updateSelects() {
 	const indexesNames = Object.entries(indexes).map(([name]) => name);
 
 	// remove all children
-	while (selects[0].childElementCount !== 0) {
-		selects[0].removeChild(selects[0].firstChild);
+	while (selectsItemsContainers[0].childElementCount !== 0) {
+		selectsItemsContainers[0].removeChild(selectsItemsContainers[0].firstChild);
 	}
-	while (selects[1].childElementCount !== 0) {
-		selects[1].removeChild(selects[1].firstChild);
+	while (selectsItemsContainers[1].childElementCount !== 0) {
+		selectsItemsContainers[1].removeChild(selectsItemsContainers[1].firstChild);
 	}
 
 	// fill selects
 	stockNames.forEach((stockName) => {
-		const option = document.createElement('option');
+		const option = document.createElement('button');
 		option.innerHTML = stockName;
 		option.setAttribute('value', stockName);
-		selects[0].appendChild(option);
+		option.classList.add('selects__option');
+		option.addEventListener('click', () => {
+			currentStock = selectsValues[0].innerHTML = stockName;
+			updateGraph();
+		})
+		selectsItemsContainers[0].appendChild(option);
 	});
 	indexesNames.forEach((indexName) => {
-		const option = document.createElement('option');
+		const option = document.createElement('button');
 		option.innerHTML = indexName;
 		option.setAttribute('value', indexName);
-		selects[1].appendChild(option);
+		option.classList.add('selects__option');
+		option.addEventListener('click', () => {
+			currentIndex = selectsValues[1].innerHTML = indexName;
+			updateGraph();
+		})
+		selectsItemsContainers[1].appendChild(option);
 	});
 
-	currentIndex = indexesNames[0];
-	currentStock = stockNames[0];
+	currentStock = selectsValues[0].innerHTML = stockNames[0];
+	currentIndex = selectsValues[1].innerHTML = indexesNames[0];
 }
 
 function updateGraph() {

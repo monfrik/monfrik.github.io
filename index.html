@@ -3,30 +3,42 @@
 <head>
   <title>Timeline</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
   <script type="text/javascript" src="https://unpkg.com/vis-timeline@latest/standalone/umd/vis-timeline-graph2d.min.js"></script>
   <link href="https://unpkg.com/vis-timeline@latest/styles/vis-timeline-graph2d.min.css" rel="stylesheet" type="text/css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Raleway:wght@100&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Raleway:wght@100&display=swap" rel="stylesheet">
   <link href="./style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <header class="header">
   <ul class="nav">
+    <a class="nav__logo" href="https://monfrik.github.io">
+      <img  src="/logo.svg" alt="logo" />
+    </a>
     <li class="nav__item">
-      <a href="https://query1.finance.yahoo.com/v7/finance/spark?symbols=%5EIXIC&range=1mo&interval=1d&indicators=close&includeTimestamps=false&includePrePost=false&corsDomain=finance.yahoo.com&.tsrc=finance" target="_blank" rel="noopener">API</a>
+      <a class="nav__item__link" href="https://finance.yahoo.com/" target="_blank" rel="noopener">Акции</a>
+    </li>
+    <li class="nav__item">
+      <a class="nav__item__link" href="https://query1.finance.yahoo.com/v7/finance/spark?symbols=%5EIXIC&range=1mo&interval=1d&indicators=close&includeTimestamps=false&includePrePost=false&corsDomain=finance.yahoo.com&.tsrc=finance" target="_blank" rel="noopener">API</a>
     </li>
   </ul>
+  <h1 class="header__title">Котировки и акции</h1>
+  <h2 class="header__desc">Составь список своих фаворитов</h2>
+  <button class="header__button">Выбрать курс акций</button>
 </header>
 <main class="main">
   <div class="selects">
     <div class="selects__item">
-      <label for="stock" class="selects__label">Акции</label>
-      <select name="stock" id="stock" class="selects__input"></select>
+      <p class="selects__label">Акции</p>
+      <div class="selects__value"></div>
+      <div class="selects__items"></div>
     </div>
     <div class="selects__item">
-      <label for="indexes" class="selects__label">Индексы</label>
-      <select name="indexes" id="indexes" class="selects__input"></select>
+      <p class="selects__label">Индексы</p>
+      <div class="selects__value"></div>
+      <div class="selects__items"></div>
     </div>
   </div>
   <div class="graphs__header">
