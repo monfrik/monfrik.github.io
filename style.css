@@ -142,6 +142,7 @@ a {
   margin-bottom: 1rem;
 }
 .selects__value {
+  min-height: 2rem;
   font-size: 18px;
   position: relative;
   font-family: 'Inter';

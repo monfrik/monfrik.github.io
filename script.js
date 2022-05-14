@@ -36,30 +36,66 @@ zoomSlider.addEventListener('change', (e) => {
 	updateGraph();
 });
 
-function parseResult(result, group) {
-	const parsed = JSON.parse(result).spark.result[0].response[0];
+async function fetchItems(items, container, group) {
+	await Promise.all(items.map(async ({name, id}) => {
+		const res = await fetchItem(id);
+		container[name] = parseResult(res[id], group);
+		return name;
+	}));
+}
 
-	return parsed.timestamp.map((time, index) => ({
+async function fetchItem(id) {
+	const res = await fetch(`https://yfapi.net/v8/finance/spark?symbols=${id}&range=1mo&interval=1d&indicators=close&includeTimestamps=false&includePrePost=false`, {
+		headers: {
+			'x-api-key': 'XcSA7RuQIFau6cHiJMyNb3p5d9mLpLW55UEg8hOQ',
+		}
+	})
+	return res.json();
+}
+
+function parseResult(result, group) {
+	return result.timestamp.map((time, index) => ({
 		x: new Date(time * 1000).toLocaleDateString('ru').split('.').reverse().join('-'),
-		y: parsed.indicators.quote[0].close[index],
+		y: result.close[index],
 		group,
 	}));
 }
 
 async function fetchStock() {
-	stock = {
-		'Microsoft': parseResult(msft, 0),
-		'Gazprom': parseResult(gazprom, 0),
-		'Apple': parseResult(apple, 0),
-	};
+	const stockItems = [
+		{
+			name: 'Microsoft',
+			id: 'MSFT'
+		},
+		{
+			name: 'Gazprom',
+			id: 'GAZP.ME'
+		},
+		{
+			name: 'Apple',
+			id: 'AAPL'
+		},
+	];
+	await fetchItems(stockItems, stock, 0);
 }
 
 async function fetchIndexes() {
-	indexes = {
-		'IMOEX': parseResult(imoex, 1),
-		'Nasdaq': parseResult(nasdaq, 1),
-		'S&P 500': parseResult(snp500, 1),
-	}
+	const indexesItems = [
+		{
+			name: 'NYM',
+			id: 'CL=F'
+		},
+		{
+			name: 'IMOEX',
+			id: 'IMOEX.ME'
+		},
+		{
+			name: 'CMX',
+			id: 'GC=F'
+		},
+	];
+
+	await fetchItems(indexesItems, indexes, 1);
 }
 
 function updateSelects() {
