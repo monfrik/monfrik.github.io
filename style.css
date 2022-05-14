@@ -60,6 +60,7 @@ a {
   .graphs__header {
     flex-direction: column-reverse;
     gap: 1rem;
+    align-items: start;
   }
 }
 .graphs__labels {
