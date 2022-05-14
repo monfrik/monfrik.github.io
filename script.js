@@ -97,12 +97,12 @@ function updateSelects() {
 }
 
 function updateGraph() {
-	let items = [...(stock[currentStock] ?? []), ...(indexes[currentIndex] ?? [])];
+	let items = [...stock[currentStock], ...indexes[currentIndex]];
 	const dataset = new vis.DataSet(items);
 
 	// get dates for set zoom of graphic
-	const minDate = items.reduce((date, item) => new Date(item.x).getTime() < date.getTime() ? new Date(item.x) : date, new Date(items[0]?.x));
-	const maxDate = items.reduce((date, item) => new Date(item.x).getTime() > date.getTime() ? new Date(item.x) : date, new Date(items[0]?.x));
+	const minDate = items.reduce((date, item) => new Date(item.x).getTime() < date.getTime() ? new Date(item.x) : date, new Date(items[0].x));
+	const maxDate = items.reduce((date, item) => new Date(item.x).getTime() > date.getTime() ? new Date(item.x) : date, new Date(items[0].x));
 
 	minDate.setDate(minDate.getDate() - 1);
 	maxDate.setDate(maxDate.getDate() + 1);
