@@ -1,6 +1,7 @@
 const headerButton = document.querySelector('.header__button');
 const main = document.querySelector('.main');
 const selectStyle = document.querySelector('.graphs__style__select');
+const selectPeriod = document.querySelector('.graphs__period__select');
 const zoomSlider = document.querySelector('.graphs__slider');
 const selectsValues = document.querySelectorAll('.selects__value');
 const selectsItemsContainers = document.querySelectorAll('.selects__items');
@@ -15,6 +16,7 @@ let currentIndex;
 let currentStock;
 
 let currentGraphStyle;
+let currentPeriod = '1mo';
 let zoom = 1;
 
 document.addEventListener('DOMContentLoaded', fetchGraph);
@@ -30,22 +32,26 @@ selectStyle.addEventListener('change', (e) => {
 	updateGraph();
 });
 
+selectPeriod.addEventListener('change', (e) => {
+	currentPeriod = e.target.value;
+	fetchGraph();
+});
+
 zoomSlider.addEventListener('change', (e) => {
 	zoom = e.target.value;
-	console.log(e.target.value)
 	updateGraph();
 });
 
 async function fetchItems(items, container, group) {
-	await Promise.all(items.map(async ({name, id}) => {
-		const res = await fetchItem(id);
+	const res = await fetchItem(items.map(({id}) => id).join(','));
+
+	items.forEach(({name, id}) => {
 		container[name] = parseResult(res[id], group);
-		return name;
-	}));
+	});
 }
 
 async function fetchItem(id) {
-	const res = await fetch(`https://yfapi.net/v8/finance/spark?symbols=${id}&range=1mo&interval=1d&indicators=close&includeTimestamps=false&includePrePost=false`, {
+	const res = await fetch(`https://yfapi.net/v8/finance/spark?symbols=${id}&range=${currentPeriod}&interval=1d&indicators=close&includeTimestamps=false&includePrePost=false`, {
 		headers: {
 			'x-api-key': 'XcSA7RuQIFau6cHiJMyNb3p5d9mLpLW55UEg8hOQ',
 		}
