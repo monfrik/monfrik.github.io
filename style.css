@@ -41,7 +41,6 @@ a {
     flex-direction: column;
   }
 }
-
 .selects__input, .graphs__style__select {
   width: 150px;
   background-color: #343465;
@@ -55,6 +54,12 @@ a {
 .graphs__header {
   display: flex;
   justify-content: space-between;
+}
+@media screen and (max-width: 750px) {
+  .graphs__header {
+    flex-direction: column-reverse;
+    gap: 1rem;
+  }
 }
 .graphs__labels {
   background-color: #444444;
