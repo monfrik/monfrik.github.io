@@ -56,6 +56,9 @@ async function fetchItem(id) {
 			'x-api-key': 'XcSA7RuQIFau6cHiJMyNb3p5d9mLpLW55UEg8hOQ',
 		}
 	})
+	if (res.status === 429) {
+		alert('Превышено количество запросов для пробного периода');
+	}
 	return res.json();
 }
 
